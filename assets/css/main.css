@@ -1,0 +1,105 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    border-radius: 10px;
+    background-color: #D8271D;
+}
+.flex img{
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+.flex p{
+    font-size: 26px;
+    color: white;
+}
+.flex.color1{
+    background-color: #F86B3E;
+}
+.flex.color2{
+    background-color: #F3983B;
+}
+.flex.color3{
+    background-color: #F9B550;
+}
+.flex.color4{
+    background-color: #88BA41;
+}
+.flex.color5{
+    background-color: #3C9BD5;
+}
+.card{
+    margin-bottom: 20px;
+}
+.list{
+    background-color: #A4A4A4;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    line-height: 60px;
+    height: 60px;
+    padding: 0 10px;
+}
+.list h2{
+    color: white !important;
+}
+.list a{
+    color: white;
+    font-weight: 600;
+}
+.tongzhi img{
+    height: 30px !important;
+    width: auto !important;
+}
+.list-content li a{
+    font-size: 18px;
+    color: #A4A4A4;
+}
+.list-content li{
+    padding: 0 10px;
+}
+.lujing{
+    background-color: #E7E7E7;
+    height: 40px;
+    line-height: 40px;
+}
+
+.lujing span{
+    color: #D8271D;
+}
+.bg{
+    background-color: white;
+    border-radius: 10px;
+    margin: 30px;
+}
+
+.tpl-table-list-select{
+    text-align: left !important;
+}
+.add{
+    color: #838FA1;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

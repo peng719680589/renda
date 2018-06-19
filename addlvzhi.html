@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>添加履职记录</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <script src="assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="imgup/index.css">
+    <link rel="stylesheet" href="imgup/common.css">
+    <script src="assets/js/jquery.min.js"></script>
+
+
+    <style type="text/css">
+
+        #upBox{
+            text-align: center;
+            width:500px;
+            padding: 20px;
+            border: 1px solid #666;
+            margin: auto;
+            margin-top: 150px;
+            margin-bottom: 200px;
+            position: relative;
+            border-radius: 10px;
+        }
+        #inputBox{
+            width: 100%;
+            height: 40px;
+            border: 1px solid cornflowerblue;
+            color: cornflowerblue;
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
+            line-height: 40px;
+            overflow: hidden;
+            font-size: 16px;
+        }
+        #inputBox input{
+            width: 114%;
+            height: 40px;
+            opacity: 0;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: -14%;
+
+        }
+        #imgBox{
+            text-align: left;
+        }
+        .imgContainer{
+            display: inline-block;
+            width: 32%;
+            height: 150px;
+            margin-left: 1%;
+            border: 1px solid #666666;
+            position: relative;
+            margin-top: 30px;
+            box-sizing: border-box;
+        }
+        .imgContainer img{
+            width: 100%;
+            height: 150px;
+            cursor: pointer;
+        }
+        .imgContainer p{
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: black;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+        }
+        .imgContainer:hover p{
+            display: block;
+        }
+        #btn{
+            outline: none;
+            width: 100px;
+            height: 30px;
+            background: cornflowerblue;
+            border: 1px solid cornflowerblue;
+            color: white;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+    </style>
+
+
+
+</head>
+
+<body data-type="index">
+<script src="assets/js/theme.js"></script>
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <header>
+        <!-- logo -->
+        <div class="am-fl tpl-header-logo am-hide-sm">
+            <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+        </div>
+        <!-- 右侧内容 -->
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list am-hide-lg am-hide-md">
+                    <span>
+
+                </span>
+            </div>
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar">
+                <ul>
+                    <!-- 欢迎语 -->
+                    <li class="am-text-sm tpl-header-navbar-welcome">
+                        <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!-- 侧边导航栏 -->
+    <div class="left-sidebar">
+
+        <!-- 菜单 -->
+        <ul class="sidebar-nav">
+
+            <li class="sidebar-nav-link">
+                <a href="index.html">
+                    <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i>代表履职
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="lvzhirecord.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 代表履职记录
+                        </a>
+                    </li>
+
+                    <!--<li class="sidebar-nav-link">-->
+                    <!--<a href="table-list-img.html">-->
+                    <!--<span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看履职记录-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <li class="sidebar-nav-link">
+                        <a href="addlvzhi.html" class="active">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加履职记录
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-comment-o sidebar-nav-link-logo"></i>议案建议
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user-times sidebar-nav-link-logo"></i>人事任免
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i>系统管理
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 菜单管理
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 权限列表
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 职位管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 部门管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户组管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i>代表履职
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i>代表履职
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-nav-link">
+                <a href="sign-up.html">
+                    <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
+                    <span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="login.html">
+                    <i class="am-icon-key sidebar-nav-link-logo"></i> 登录
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="404.html">
+                    <i class="am-icon-tv sidebar-nav-link-logo"></i> 404错误
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+        <div class="am-alert am-alert-secondary" data-am-alert>
+            <p><span>代表履职</span>&nbsp;&nbsp;/&nbsp;&nbsp;添加履职记录</p>
+        </div>
+        <div class="row-content am-cf bg">
+            <div class="row am-cf">
+                <div id="tpl-echarts"></div>
+                <form id="form1" class="am-form  am-form-horizontal" method="post"  enctype="multipart/form-data" >
+                    <fieldset>
+                    <h1 class="am-lg-text-center add">添加履职记录</h1>
+                    <div class="am-u-lg-6 am-u-md-12">
+                        <div class="am-form-group">
+                            <label class="am-u-sm-4 am-u-md-2 am-form-label" for="title">*标题</label>
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <input id="title"  name="title" class="am-form-field am-radius" type="text" required />
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-4 am-u-md-2 am-form-label">*组织者</label>
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <input id="organizer" name="organizer" class="am-form-field am-radius" type="text" required>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-4 am-u-md-2 am-form-label">*类别</label>
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <label class="am-radio-inline">
+                                    <input type="radio" value="0" name="type" required> 会议
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" value="1" name="type"> 每一秒
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" value="2" name="type"> 多好
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-4 am-u-md-2 am-form-label">*时间</label>
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <input placeholder="请选择日期" id="duty_date" name="duty_date" class="am-form-field am-radius" data-am-datepicker required type="text">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-4 am-u-md-2 am-form-label">*地址</label>
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <input id="address" name="address" class="am-form-field am-radius" type="text" required>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-4 am-u-md-2 am-form-label" for="doc-select-1">*届别</label>
+                            <div class="am-u-sm-8 am-u-md-10">
+                            <select id="doc-select-1">
+
+                            </select>
+                            </div>
+                            <span class="am-form-caret"></span>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-4 am-u-md-2 am-form-label" for="doc-select-1">*会议</label>
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <select id="doc-select-2">
+
+                                </select>
+                            </div>
+                            <span class="am-form-caret"></span>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="am-u-sm-4 am-u-md-2 am-form-label">*内容</label>
+                            <div class="am-u-sm-8 am-u-md-10">
+                                <textarea required id="content" name="content" class=" am-radius" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-u-lg-6 am-u-md-12">
+                        <div class="img-box full">
+                            <section class=" img-section">
+                                <p class="up-p">作品图片：<span class="up-span">最多可以上传5张图片，马上上传</span></p>
+                                <div class="z_photo upimg-div clear" >
+                                    <section class="z_file fl">
+                                        <img src="imgup/a11.png" class="add-img">
+                                        <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+                                    </section>
+                                </div>
+                            </section>
+                        </div>
+                        <aside class="mask works-mask">
+                            <div class="mask-content">
+                                <p class="del-p">您确定要删除作品图片吗？</p>
+                                <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                            </div>
+                        </aside>
+                        <div class="am-form-group am-form-file" style="padding-top: 8%">
+                            <button type="button" class="am-btn am-btn-default am-btn-sm">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的视频</button>
+                            <input id="doc-form-file"  accept="video/*" type="file" multiple>
+                        </div>
+                        <div id="file-list"></div>
+                    </div>
+
+                    </fieldset>
+                    <div class="am-u-lg-12">
+                        <button class="am-btn am-btn-secondary am-center" type="submit" id="submit" >提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="imgup/imgUp.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.datatables.min.js"></script>
+<script src="assets/js/dataTables.responsive.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+    $(function () {
+
+            // 图片列表
+        var pic_list = [];
+            // 视频列表
+        var video_list = [];
+        //视频名称
+        $('#doc-form-file').on('change', function() {
+            var fileNames = '';
+            $.each(this.files, function() {
+                fileNames += '<span class="am-badge">' + this.name + '</span> ';
+            });
+            $('#file-list').html(fileNames);
+        });
+
+
+
+        // 届别
+        $.ajax({
+            type:"post",
+            url:"http://192.168.0.117:8081/due/list",
+            contentType:"application/json",
+            data: JSON.stringify({
+                "pageNum": "1"
+            }),
+            success:function (data) {
+                var options = "";
+                var due = data.obj;
+                $.each(due,function (index,value) {
+                    options += '  <option value="'+value.id+'">'+value.name+'</option>';
+                });
+                $("#doc-select-1").html(options);
+                // console.log(data)
+            }
+        });
+        // 会议
+        $.ajax({
+            type:"post",
+            url:"http://192.168.0.117:8081/meeting/list",
+            contentType:"application/json",
+            data: JSON.stringify({
+                "pageNum": "1"
+            }),
+            success:function (data) {
+                var options2 = "";
+                var meeting = data.obj;
+                $.each(meeting,function (index,value) {
+                    options2 += '<option value="'+value.id+'">'+value.name+'</option>';
+                });
+                $("#doc-select-2").html(options2);
+
+            }
+        });
+
+        // 提交
+        $("#submit").click(function () {
+
+
+
+
+            //表单验证
+             var form1 = $('#form1');
+            form1.validator({
+                submit: function () {
+                    var formValidity = this.isFormValid();
+                    if (formValidity){
+                            //视频上传
+                        var formData2 = new FormData();
+                        var pic2 = document.getElementById("doc-form-file").files;
+
+                        for(var n=0;n<pic2.length;n++){
+                            formData2.append(""+n+"",pic2[n]);
+                        }
+                        $.ajax({
+                            url : "http://192.168.0.117:8081/duty/record/file",
+                            type: 'POST',
+                            data: formData2,
+                            async: false,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            success : function(data) {
+                                video_list = data.obj;
+                                console.log(data);
+                            },
+                            error : function(data) {
+                                console.log(data);
+                            }
+                        });
+
+
+                        // 图片上传
+                        var formData = new FormData();
+                        var pic = document.getElementById("file").files;
+
+                        for(var j=0;j<pic.length;j++){
+                            formData.append(""+j+"",pic[j]);
+                        }
+                        $.ajax({
+                            url : "http://192.168.0.117:8081/duty/record/file",
+                            type: 'POST',
+                            data: formData,
+                            async: false,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            success : function(data) {
+                                pic_list = data.obj;
+                                console.log(data);
+                            },
+                            error : function(data) {
+                                console.log(data);
+                            }
+                        });
+
+
+
+
+                        var title = $("#title").val();
+
+                        var organizer = $("#organizer").val();
+                        var duty_date = $("#duty_date").val();
+                        var type = $("[name='type']:checked").val();
+                        var address = $("#address").val();
+                        // 获得select被选中option的value值
+                        var value1=$("#doc-select-1 option:selected").val(); //获取选中的项
+
+                        var value2 = $("#doc-select-2 option:selected").val();
+                        var content = $("#content").val();
+
+                        var str = {"title":title,"organizer":organizer,"duty_date":duty_date,"type":type,
+                            "address":address,"due_id":value1,"meeting_id":value2,"content":content,
+                        "pic_list":pic_list,"video_list":video_list};
+                        console.log(str);
+                        $.ajax({
+                            async: false,
+                            type: "post",
+                            url: "http://192.168.0.117:8081/duty/record/",
+                            contentType: "application/json",
+                            data:JSON.stringify(str),
+                            success:function (data) {
+                                console.log(data);
+                            }
+                        });
+                        return false
+                    } else {
+                       return false
+                    }
+                }
+            });
+        });
+
+    })
+</script>
+</body>
+
+</html>
