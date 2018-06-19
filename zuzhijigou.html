@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>寒亭人大</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <script src="assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/jquery.min.js"></script>
+
+</head>
+
+<body data-type="index">
+<script src="assets/js/theme.js"></script>
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <header>
+        <!-- logo -->
+        <div class="am-fl tpl-header-logo am-hide-sm">
+            <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+        </div>
+        <!-- 右侧内容 -->
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list am-hide-lg am-hide-md">
+                    <span>
+
+                </span>
+            </div>
+
+
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar">
+                <ul>
+                    <!-- 欢迎语 -->
+                    <li class="am-text-sm tpl-header-navbar-welcome">
+                        <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!-- 侧边导航栏 -->
+    <div class="left-sidebar">
+
+        <!-- 菜单 -->
+        <ul class="sidebar-nav">
+
+            <li class="sidebar-nav-link">
+                <a href="index.html">
+                    <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i>代表履职
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="lvzhirecord.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 代表履职记录
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="addlvzhi.html" class="active">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加履职记录
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-comment-o sidebar-nav-link-logo"></i>议案建议
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user-times sidebar-nav-link-logo"></i>人事任免
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i>系统管理
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 菜单管理
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 权限列表
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 职位管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 部门管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户组管理
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link">
+                        <a href="user.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i>代表履职
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-user sidebar-nav-link-logo"></i>代表履职
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub">
+                    <li class="sidebar-nav-link">
+                        <a href="table-list.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                        </a>
+                    </li>
+
+                    <li class="sidebar-nav-link">
+                        <a href="table-list-img.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-nav-link">
+                <a href="sign-up.html">
+                    <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
+                    <span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="login.html">
+                    <i class="am-icon-key sidebar-nav-link-logo"></i> 登录
+                </a>
+            </li>
+            <li class="sidebar-nav-link">
+                <a href="404.html">
+                    <i class="am-icon-tv sidebar-nav-link-logo"></i> 404错误
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+
+        <div class="row-content am-cf">
+
+
+            <div class="row am-cf">
+                <a href="#">
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
+                        <div id="tpl-echarts"></div>
+                        <div class="flex">
+                            <img src="assets/img/renwu.png">
+                            <p>代表履职</p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <a href="#">
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
+
+                        <div class="flex color1">
+                            <img src="assets/img/yian.png">
+                            <p>议案建议</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
+
+                        <div class="flex color2">
+                            <img src="assets/img/renshi.png">
+                            <p>人事任免</p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <a href="#">
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
+
+                        <div class="flex color3">
+                            <img src="assets/img/zaixian.png">
+                            <p>在线学习</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
+
+                        <div class="flex color4">
+                            <img src="assets/img/huiyi.png">
+                            <p>会议管理</p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <a href="#">
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
+                        <div class="flex color5">
+                            <img src="assets/img/pingfen.png">
+                            <p>评分管理</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="row am-cf">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6 widget-margin-bottom-lg">
+                    <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                        <!--列表标题-->
+                        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default list" >
+                            <h2 class=" tongzhi">
+                                <img src="assets/img/tongzhi.png"/>
+                                通知公告
+                            </h2>
+                            <nav class="am-titlebar-nav">
+                                <a href="#more" class="">更多</a>
+                            </nav>
+                        </div>
+                        <div class="am-list-news-bd">
+                            <ul class="am-list  list-content">
+                                <li class="am-g am-list-item-dated">
+                                    <a href="##" class="am-list-item-hd ">我很囧，你保重....晒晒旅行中的那些囧！</a>
+                                </li>
+                                <li class="am-g am-list-item-dated">
+                                    <a href="##" class="am-list-item-hd ">我最喜欢的一张画</a>
+                                </li>
+                                <li class="am-g am-list-item-dated">
+                                    <a href="##" class="am-list-item-hd ">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6 widget-margin-bottom-lg">
+                    <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                        <!--列表标题-->
+                        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default list" >
+                            <h2 class=" tongzhi">
+                                <img src="assets/img/xuexi.png"/>
+                                在线学习
+                            </h2>
+                            <nav class="am-titlebar-nav">
+                                <a href="#more" class="">更多</a>
+                            </nav>
+                        </div>
+                        <div class="am-list-news-bd">
+                            <ul class="am-list  list-content">
+                                <li class="am-g am-list-item-dated">
+                                    <a href="##" class="am-list-item-hd ">我很囧，你保重....晒晒旅行中的那些囧！</a>
+                                </li>
+                                <li class="am-g am-list-item-dated">
+                                    <a href="##" class="am-list-item-hd ">我最喜欢的一张画</a>
+                                </li>
+                                <li class="am-g am-list-item-dated">
+                                    <a href="##" class="am-list-item-hd ">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/amazeui.datatables.min.js"></script>
+<script src="assets/js/dataTables.responsive.min.js"></script>
+<script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
