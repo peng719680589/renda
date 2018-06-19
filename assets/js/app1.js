@@ -57,12 +57,10 @@ function check(e){
 
     $.each($('#show input:checkbox:checked'),function(){
         userId = $(this).val();
-
         moreUserid.push(e);
-        console.log(moreUserid)
-        checkedLength = $('#show input:checkbox:checked').length;
-    });
 
+    });
+    checkedLength = $('#show input:checkbox:checked').length;
 
 }
 console.log(userId);
@@ -172,7 +170,6 @@ $(function () {
     pic1.addEventListener('change',readFile,false);
     function readFile() {
         var reader = new FileReader();
-       
         var file  = this.files[0];
         reader.readAsDataURL(file);
         reader.onload = function (e) {
@@ -209,6 +206,7 @@ $(function () {
     });
     //修改
     $(".changeBtn").click(function () {
+        check();
         if (checkedLength <= 0){
             $('#my-alert').modal({target: '#my-alert'});
             $(".users").html("修改用户");
