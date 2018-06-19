@@ -43,6 +43,7 @@ function importData() {
             $(".alert").html("导入失败");
         }
     })
+
 }
 //获取选中cheacked的id和个数
 var userId = "";
