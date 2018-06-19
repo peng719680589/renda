@@ -2,6 +2,8 @@
 var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1MjkzNjc5ODE3NDYsImV4cCI6MTUyOTk3Mjc4MX0.btNsPJhg97yT9NIQ7Khaix0jhHylZQKxF8pFQhvZN22taa0CUvBCclgJ_eXuVjukj1AnytzXo0HJSFZVyl2U8Q";
 //导出excel模板
 var locationUrl = "http://192.168.0.117:8081";
+
+
 function exportDataTelement(){
 
     window.location.href = locationUrl + "/users/template";
@@ -63,7 +65,7 @@ function check(e){
 
 
 }
-console.log(userId)
+console.log(userId);
 //右侧删除
 function del(e) {
     var deleteList = [e];
@@ -312,18 +314,41 @@ $(function () {
     });
     // 提交修改密码
     $("#go2").click(function () {
-        $.ajax({
-            url:"http://192.168.0.117:8081/users/update_password",
-            type:"post",
-            contentType:"application/json",
-            data:JSON.stringify({
-                "id":userId,
-                "password":password
-            }),
-            success:function (data) {
-                console.log(data)
+        var password = $("#password1").val();
+        var form3 = $("#form3");
+        form3.validator({
+            submit: function () {
+                var formValidity = this.isFormValid();
+                if (formValidity){
+                    $.ajax({
+                        url:"http://192.168.0.117:8081/users/update_password",
+                        type:"post",
+                        contentType:"application/json",
+                        data:JSON.stringify({
+                            "id":userId,
+                            "password":password
+                        }),
+                        success:function (data) {
+                            if (data.success === true) {
+                                $(".users").html("修改密码");
+                                $(".alert").html("修改成功！");
+                                $('#my-alert').modal({target: '#my-alert'});
+                                $('#my-popup').modal('close');
+                            }else {
+                                $(".users").html("修改密码");
+                                $(".alert").html("修改失败！");
+                                $('#my-alert').modal({target: '#my-alert'});
+                                $('#my-popup').modal('close');
+                            }
+                        }
+                    });
+                    return false
+                } else {
+                    return false
+                }
             }
         });
+
     });
     //新增用户
     $("#go").click(function () {
@@ -473,6 +498,15 @@ $(function () {
     //查询用户列表
     //页数
     var pages =1;
+    // 查找用户
+    var realname ="";
+        $("#searchValue").click(function () {
+            realname = $("#seacrhInput").val();
+            loadData();
+        });
+
+
+
     function loadData(pageNum){
         $.ajax({
             url:"http://192.168.0.117:8081/users/list",
@@ -480,7 +514,9 @@ $(function () {
             headers: { "Authorization": "Bearer " + token},
             contentType: "application/json",
             data:JSON.stringify({
-                "pageNum": pageNum
+                "pageNum": pageNum,
+                "realname": realname,
+
             }),
             success: function (data) {
                 var userList = data.obj;
