@@ -4,21 +4,29 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>寒亭人大</title>
-    <meta name="description" content="这是一个 index 页面">
+    <title>组织机构</title>
+    <meta name="description" content="组织机构">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
-    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
     <script src="assets/js/echarts.min.js"></script>
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css"/>
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/main.css">
+
+
+    <link rel="stylesheet" href="ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
     <script src="assets/js/jquery.min.js"></script>
+
+
+
+
+
 
 </head>
 
@@ -39,8 +47,6 @@
 
                 </span>
             </div>
-
-
             <!-- 其它功能-->
             <div class="am-fr tpl-header-navbar">
                 <ul>
@@ -77,6 +83,11 @@
                         </a>
                     </li>
 
+                    <!--<li class="sidebar-nav-link">-->
+                    <!--<a href="table-list-img.html">-->
+                    <!--<span class="am-icon-angle-right sidebar-nav-link-logo"></span> 查看履职记录-->
+                    <!--</a>-->
+                    <!--</li>-->
                     <li class="sidebar-nav-link">
                         <a href="addlvzhi.html" class="active">
                             <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 添加履职记录
@@ -150,8 +161,8 @@
                         </a>
                     </li>
                     <li class="sidebar-nav-link">
-                        <a href="table-list-img.html">
-                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 部门管理
+                        <a href="zuzhijigou.html">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 组织机构
                         </a>
                     </li>
                     <li class="sidebar-nav-link">
@@ -160,7 +171,7 @@
                         </a>
                     </li>
                     <li class="sidebar-nav-link">
-                        <a href="user.html">
+                        <a href="table-list-img.html">
                             <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户列表
                         </a>
                     </li>
@@ -228,139 +239,34 @@
 
         </ul>
     </div>
-
-
     <!-- 内容区域 -->
     <div class="tpl-content-wrapper">
+        <div class="am-alert am-alert-secondary" data-am-alert>
+            <p><span>系统管理</span>&nbsp;&nbsp;/&nbsp;&nbsp;组织机构</p>
+        </div>
+        <div class="row-content am-cf bg">
+            <div class="row am-cf" style="padding: 0 10%">
+                <div id="tpl-echarts"></div>
 
-        <div class="row-content am-cf">
-
-
-            <div class="row am-cf">
-                <a href="#">
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
-                        <div id="tpl-echarts"></div>
-                        <div class="flex">
-                            <img src="assets/img/renwu.png">
-                            <p>代表履职</p>
+                        <h1 class="am-lg-text-center add">组织机构</h1>
+                        <div class="am-u-lg-4 am-u-md-12" >
+                            <div>
+                                <ul id="treeDemo" class="ztree" style="background-color: #cccccc2e; border-radius: 5px"></ul>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                        <div class="am-u-lg-8 am-u-md-12" style="padding: 0 5%" >
+                            <form class="am-form am-form-horizontal"  style="background-color: #cccccc2e; border-radius: 5px">
+                            <div class="am-form-group">
+                                <label class="am-u-sm-4 am-u-lg-2 am-form-label">名称</label>
+                                <div class="am-u-sm-8 am-u-lg-8 am-u-end" >
+                                    <input type="text" id="username" class="am-radius"  placeholder="">
+                                </div>
+                            </div>
 
-
-                <a href="#">
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
-
-                        <div class="flex color1">
-                            <img src="assets/img/yian.png">
-                            <p>议案建议</p>
+                            </form>
                         </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
-
-                        <div class="flex color2">
-                            <img src="assets/img/renshi.png">
-                            <p>人事任免</p>
-                        </div>
-                    </div>
-                </a>
-
-
-                <a href="#">
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
-
-                        <div class="flex color3">
-                            <img src="assets/img/zaixian.png">
-                            <p>在线学习</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#">
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
-
-                        <div class="flex color4">
-                            <img src="assets/img/huiyi.png">
-                            <p>会议管理</p>
-                        </div>
-                    </div>
-                </a>
-
-
-                <a href="#">
-                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 card">
-                        <div class="flex color5">
-                            <img src="assets/img/pingfen.png">
-                            <p>评分管理</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-
-            <div class="row am-cf">
-                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6 widget-margin-bottom-lg">
-                    <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
-                        <!--列表标题-->
-                        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default list" >
-                            <h2 class=" tongzhi">
-                                <img src="assets/img/tongzhi.png"/>
-                                通知公告
-                            </h2>
-                            <nav class="am-titlebar-nav">
-                                <a href="#more" class="">更多</a>
-                            </nav>
-                        </div>
-                        <div class="am-list-news-bd">
-                            <ul class="am-list  list-content">
-                                <li class="am-g am-list-item-dated">
-                                    <a href="##" class="am-list-item-hd ">我很囧，你保重....晒晒旅行中的那些囧！</a>
-                                </li>
-                                <li class="am-g am-list-item-dated">
-                                    <a href="##" class="am-list-item-hd ">我最喜欢的一张画</a>
-                                </li>
-                                <li class="am-g am-list-item-dated">
-                                    <a href="##" class="am-list-item-hd ">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
                 </div>
 
-                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6 widget-margin-bottom-lg">
-                    <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
-                        <!--列表标题-->
-                        <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default list" >
-                            <h2 class=" tongzhi">
-                                <img src="assets/img/xuexi.png"/>
-                                在线学习
-                            </h2>
-                            <nav class="am-titlebar-nav">
-                                <a href="#more" class="">更多</a>
-                            </nav>
-                        </div>
-                        <div class="am-list-news-bd">
-                            <ul class="am-list  list-content">
-                                <li class="am-g am-list-item-dated">
-                                    <a href="##" class="am-list-item-hd ">我很囧，你保重....晒晒旅行中的那些囧！</a>
-                                </li>
-                                <li class="am-g am-list-item-dated">
-                                    <a href="##" class="am-list-item-hd ">我最喜欢的一张画</a>
-                                </li>
-                                <li class="am-g am-list-item-dated">
-                                    <a href="##" class="am-list-item-hd ">“你的旅行，是什么颜色？” 晒照片，换北欧梦幻极光之旅！</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
 </div>
@@ -368,7 +274,54 @@
 <script src="assets/js/amazeui.datatables.min.js"></script>
 <script src="assets/js/dataTables.responsive.min.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="ztree/js/jquery.ztree.all.js"></script>
+<script>
+    // token
+    var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1MjkzNjc5ODE3NDYsImV4cCI6MTUyOTk3Mjc4MX0.btNsPJhg97yT9NIQ7Khaix0jhHylZQKxF8pFQhvZN22taa0CUvBCclgJ_eXuVjukj1AnytzXo0HJSFZVyl2U8Q";
+    var zTreeObj;
+    // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
 
+    function zTreeOnNodeCreated(event, treeId, treeNode) {
+        console.log(treeNode.id + ", " + treeNode.name);
+
+    }
+
+    // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+    var zNodes = [];
+    $(document).ready(function(){
+
+
+        var setting = {
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pId",
+                    rootPId: 0
+                }
+            },
+            callback:{
+                onNodeCreated:zTreeOnNodeCreated
+            }
+        };
+
+        $.ajax({
+            async : false,
+            url:"http://192.168.0.117:8081/organ/tree/0",
+            headers: { "Authorization": "Bearer " + token},
+            type:"get",
+            contentType:"application/json",
+            data:{} ,
+            success:function (data) {
+                zNodes =data.obj;
+                console.log(zNodes)
+            }
+        });
+
+        zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, JSON.parse(zNodes));
+
+    });
+</script>
 </body>
 
 </html>
