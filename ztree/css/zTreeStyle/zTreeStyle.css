@@ -17,7 +17,7 @@ website:	http://code.google.com/p/jquerytree/
 .ztree li a {padding:1px 3px 0 0; margin:0; cursor:pointer; height:17px; color:#333; background-color: transparent;
 	text-decoration:none; vertical-align:middle; display: inline-block;}
 /*.ztree li a:hover {text-decoration:underline}*/
-.ztree li a.curSelectedNode {padding-top:0px;  height:16px; color: #0e90d2; opacity:0.8;}
+.ztree li a.curSelectedNode {padding-top:0px;  height:16px; color: #0099ff; opacity:0.8;}
 .ztree li a.curSelectedNode_Edit {padding-top:0px; background-color:#FFE6B0; color:black; height:16px; border:1px #FFB951 solid; opacity:0.8;}
 .ztree li a.tmpTargetNode_inner {padding-top:0px; background-color:#316AC5; color:white; height:16px; border:1px #316AC5 solid;
 	opacity:0.8; filter:alpha(opacity=80)}
@@ -25,7 +25,7 @@ website:	http://code.google.com/p/jquerytree/
 .ztree li a.tmpTargetNode_next {}
 .ztree li a input.rename {height:14px; width:80px; padding:0; margin:0;
 	font-size:12px; border:1px #7EC4CC solid; *border:0px}
-.ztree li span {line-height:16px; margin-right:2px}
+.ztree li span {line-height:16px; margin-right:2px;margin-left: 10px}
 .ztree li span.button {line-height:0; margin:0; display: inline-block; vertical-align:middle;
 	border:0 none; cursor: pointer;outline:none;
 	background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
@@ -58,8 +58,8 @@ website:	http://code.google.com/p/jquerytree/
 .ztree li span.button.root_close{background-position:-25px 0}
 .ztree li span.button.roots_open{background-position:-92px 0}
 .ztree li span.button.roots_close{background-position:-74px 0}
-.ztree li span.button.center_open{background-position:-92px -18px}
-.ztree li span.button.center_close{background-position:-74px -18px}
+.ztree li span.button.center_open{background-position:0 0}
+.ztree li span.button.center_close{background-position:-25px 0}
 .ztree li span.button.bottom_open{background-position:-92px -36px}
 .ztree li span.button.bottom_close{background-position:-74px -36px}
 .ztree li span.button.noline_open{background-position:-92px -72px}
