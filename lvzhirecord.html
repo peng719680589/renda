@@ -171,8 +171,6 @@
                     </li>
                 </ul>
             </li>
-
-
             <li class="sidebar-nav-link">
                 <a href="javascript:;" class="sidebar-nav-sub-title">
                     <i class="am-icon-user sidebar-nav-link-logo"></i>代表履职
@@ -322,7 +320,7 @@
         var pages =1;
         function loadData(pageNum){
             $.ajax({
-                url:"http://192.168.0.117:8081/duty/record/list",
+                url:"http://192.168.0.117:9000/duty/record/list",
                 type:"post",
                 async: false,
                 headers: { "Authorization": "Bearer " + token},

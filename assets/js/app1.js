@@ -1,18 +1,15 @@
 // token
 var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1MjkzNjc5ODE3NDYsImV4cCI6MTUyOTk3Mjc4MX0.btNsPJhg97yT9NIQ7Khaix0jhHylZQKxF8pFQhvZN22taa0CUvBCclgJ_eXuVjukj1AnytzXo0HJSFZVyl2U8Q";
 //导出excel模板
-var locationUrl = "http://192.168.0.117:8081";
-
-
+var locationUrl = "http://192.168.0.117:9000";
 function exportDataTelement(){
-
     window.location.href = locationUrl + "/users/template";
     return false;
 }
 // 导出用户excel
 function exportData(){
     var searchValue =  $("#seacrhInput").val();
-    console.log(searchValue)
+
     if (searchValue != ''){
         window.location.href = locationUrl + '/users/export?username='+searchValue;
     }else {
@@ -27,9 +24,10 @@ function importData() {
         formdata.append(""+j+"",pic[j]);
     }
     $.ajax({
-        url:"http://192.168.0.117:8081/users/leadingin",
+        url:"http://192.168.0.117:9000/users/leadingin",
         type:"post",
         cache: false,
+        headers: { "Authorization": "Bearer " + token},
         contentType: false,
         processData: false,
         data:formdata,
@@ -61,7 +59,6 @@ function check(e){
 
     });
     checkedLength = $('#show input:checkbox:checked').length;
-
 }
 console.log(userId);
 //右侧删除
@@ -69,8 +66,9 @@ function del(e) {
     var deleteList = [e];
     $.ajax({
         type:"post",
-        url:"http://192.168.0.117:8081/users/deletes",
+        url:"http://192.168.0.117:9000/users/deletes",
         contentType:"application/json",
+        headers: { "Authorization": "Bearer " + token},
         data:JSON.stringify({
             "ids":deleteList
         }),
@@ -97,8 +95,9 @@ function del(e) {
 function editor(e){
     $(".newBuild").html("修改用户<input type='hidden' value='1'><a href=\"javascript: void(0)\" class=\"am-close am-close-spin\" data-am-modal-close>&times;</a>");
     $.ajax({
-        url:"http://192.168.0.117:8081/users/detail",
+        url:"http://192.168.0.117:9000/users/detail",
         type:"post",
+        headers: { "Authorization": "Bearer " + token},
         contentType:"application/json",
         data:JSON.stringify({
             "id":e
@@ -112,10 +111,12 @@ function editor(e){
             var imgSrc =  locationUrl+"/"+data.obj.head_pic;
             $("#touxiang").attr("src",imgSrc);
             $("#organ_name").val(data.obj.organ_id);
-            $("#join_date").val(data.obj.join_date);
+
+                $('#join_date').datepicker('setValue', data.obj.join_dates);
             $("#education").val(data.obj.education);
             $("#nation").val(data.obj.nation);
-            $("#birth").val(data.obj.birth);
+
+            $("#birth").datepicker('setValue', data.obj.birth);
             $("#marriage").val(data.obj.marriage);
             $("#origin_addr").val(data.obj.origin_addr);
             $("#card_no").val(data.obj.card_no);
@@ -133,8 +134,9 @@ $(function () {
     // 查询所有单位
     $.ajax({
         type:"post",
-        url:"http://192.168.0.117:8081/organ/list",
+        url:"http://192.168.0.117:9000/organ/list",
         contentType:"application/json",
+        headers: { "Authorization": "Bearer " + token},
         data:JSON.stringify({
             "pageNum":"1"
         }),
@@ -150,8 +152,9 @@ $(function () {
     // 查询学历参数
     $.ajax({
         type:"post",
-        url:"http://192.168.0.117:8081/dictionary/list_by_type",
+        url:"http://192.168.0.117:9000/dictionary/list_by_type",
         contentType:"application/json",
+        headers: { "Authorization": "Bearer " + token},
         data:JSON.stringify({
             "pageNum":"1",
             "type":"edu"
@@ -187,10 +190,10 @@ $(function () {
         $("#sex").val("");
         $("#touxiang").attr("src","");
         $("#organ_name").val("");
-        $("#join_date").val("");
+        // $("#join_date").val("");
         $("#education").val("");
         $("#nation").val("");
-        $("#birth").val("");
+        // $("#birth").val("");
         $("#marriage").val("");
         $("#origin_addr").val("");
         $("#card_no").val("");
@@ -216,8 +219,9 @@ $(function () {
             $(".newBuild").html("修改用户<input type='hidden' value='1'><a href=\"javascript: void(0)\" class=\"am-close am-close-spin\" data-am-modal-close>&times;</a>");
 
             $.ajax({
-                url:"http://192.168.0.117:8081/users/detail",
+                url:"http://192.168.0.117:9000/users/detail",
                 type:"post",
+                headers: { "Authorization": "Bearer " + token},
                 contentType:"application/json",
                 data:JSON.stringify({
                     "id":userId
@@ -232,6 +236,7 @@ $(function () {
                     $("#touxiang").attr("src",imgSrc);
                     $("#organ_name").val(data.obj.organ_id);
                     $("#join_date").val(data.obj.join_date);
+
                     $("#education").val(data.obj.education);
                     $("#nation").val(data.obj.nation);
                     $("#birth").val(data.obj.birth);
@@ -267,8 +272,9 @@ $(function () {
 
            $.ajax({
                type:"post",
-               url:"http://192.168.0.117:8081/users/deletes",
+               url:"http://192.168.0.117:9000/users/deletes",
                contentType:"application/json",
+               headers: { "Authorization": "Bearer " + token},
                data:JSON.stringify({
                    "ids":moreUserid
                }),
@@ -319,9 +325,10 @@ $(function () {
                 var formValidity = this.isFormValid();
                 if (formValidity){
                     $.ajax({
-                        url:"http://192.168.0.117:8081/users/update_password",
+                        url:"http://192.168.0.117:9000/users/update_password",
                         type:"post",
                         contentType:"application/json",
+                        headers: { "Authorization": "Bearer " + token},
                         data:JSON.stringify({
                             "id":userId,
                             "password":password
@@ -370,14 +377,15 @@ $(function () {
                     console.log(formdata);
                     $.ajax({
                         async:false,
-                        url:"http://192.168.0.117:8081/users/headpic",
+                        url:"http://192.168.0.117:9000/users/headpic",
                         type:"post",
                         data:formdata,
                         cache: false,
                         contentType: false,
                         processData: false,
                         success:function (data) {
-                            head_pic = data.obj.path;
+                            head_pic = data.obj;
+
                         }
                     });
                     var id = $("#id").attr("value");
@@ -386,15 +394,14 @@ $(function () {
                     var sex = $("#sex option:selected").val();
                     var organ_name = $("#organ_name option:selected").val();
                     var join_date = $("#join_date").val();
-                        if (join_date == ""){
+                        if (join_date === ""){
                           join_date = null;
                         }
-
                     var education = $("#education").val();
                     var nation = $("#nation").val();
 
                     var birth = $("#birth").val();
-                    if (birth == ""){
+                    if (birth === ""){
                         birth = null;
                     }
                     var marriage = $("#marriage").val();
@@ -410,24 +417,25 @@ $(function () {
                         "education":education,"nation":nation,"birth":birth,"marriage":marriage,"origin_addr":origin_addr,"card_no":card_no,
                         "address":address,"family_addr":family_addr,"tel":tel,"phone":phone,"email":email,"head_pic":head_pic
                     };
+                    console.log(str3)
                     if (isAdd === "0"){
                         $.ajax({
                             async:false,
                             headers: { "Authorization": "Bearer " + token},
-                            url:"http://192.168.0.117:8081/users/",
+                            url:"http://192.168.0.117:9000/users/",
                             contentType: "application/json",
                             type:"post",
                             data:JSON.stringify(str3),
                             success:function (data) {
                                 if (data.success === true) {
                                     $(".users").html("新建用户");
-                                    $(".alert").html("添加成功！");
+                                    $(".alert").html(data.message);
                                     $('#my-alert').modal({target: '#my-alert'});
                                     $('#modal1').modal('close');
                                 }else {
 
                                     $(".users").html("新建用户");
-                                    $(".alert").html("新建失败！");
+                                    $(".alert").html("新建失败："+data.message);
                                     $('#my-alert').modal({target: '#my-alert'});
                                     $('#modal1').modal('close');
                                 }
@@ -437,22 +445,23 @@ $(function () {
                                     console.log(data);
                             }
                         });
-                    }else if (isAdd === "1"){
+                    }else{
                         $.ajax({
                             async:false,
-                            url:"http://192.168.0.117:8081/users/update",
+                            headers: { "Authorization": "Bearer " + token},
+                            url:"http://192.168.0.117:9000/users/update",
                             contentType:"application/json",
                             type:"post",
                             data:JSON.stringify(str3),
                             success:function (data) {
                                 if (data.success === true) {
                                 $(".users").html("修改用户");
-                                $(".alert").html("修改成功！");
+                                $(".alert").html(data.message);
                                 $('#my-alert').modal({target: '#my-alert'});
                                 $('#modal1').modal('close');
                                 }else {
                                     $(".users").html("修改用户");
-                                    $(".alert").html("修改失败！");
+                                    $(".alert").html("修改失败:"+data.message);
                                     $('#my-alert').modal({target: '#my-alert'});
                                     $('#modal1').modal('close');
                                 }
@@ -507,7 +516,7 @@ $(function () {
 
     function loadData(pageNum){
         $.ajax({
-            url:"http://192.168.0.117:8081/users/list",
+            url:"http://192.168.0.117:9000/users/list",
             type:"post",
             headers: { "Authorization": "Bearer " + token},
             contentType: "application/json",

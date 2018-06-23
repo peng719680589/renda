@@ -46,7 +46,7 @@
                     <ul>
                         <!-- 欢迎语 -->
                         <li class="am-text-sm tpl-header-navbar-welcome">
-                            <a href="javascript:;">欢迎你, <span>Amaze UI</span> </a>
+                            <a href="javascript:;">欢迎你, <span id="name"></span> </a>
                         </li>
 
                     </ul>
@@ -373,7 +373,11 @@
     <script src="assets/js/amazeui.datatables.min.js"></script>
     <script src="assets/js/dataTables.responsive.min.js"></script>
     <script src="assets/js/app.js"></script>
-
+    <script>
+        $(function () {
+            let name = localStorage.getItem("username");
+            $("#name").append(name)
+        })
+    </script>
 </body>
-
 </html>

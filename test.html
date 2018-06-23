@@ -1,115 +1,69 @@
 <!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE> ZTREE DEMO </TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>capture screen</title>
-</head>
-<body>
-<input type="file" id="input" accept="video/*" onchange="handleFiles(this.files);" multiple>
-<div class="addVideo"><video src="" id="video0" controls="controls" preload="none" style="display: none;"></video></div>
-<div id="output"></div>
-<input id="btn2" type="button" value="shangchuan">
+    <link rel="stylesheet" href="ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="ztree/js/jquery-1.4.4.min.js"></script>
 
-<script src="assets/js/jquery.min.js"></script>
-<script>
-
-    var inputElement = document.getElementById("input");
-    inputElement.addEventListener("change",handleFiles,false);
-    var video_lsit = [];
-    function handleFiles() {
-        var fileList = this.files;
-        for (var i = 0;i<fileList.length;i++){
-
-            console.log(fileList[i])
+    <script src="ztree/js/jquery.ztree.all.js"></script>
+    <style>
+        ul.ztree{
+            background-color: #cccccc4f;
         }
-        return fileList
-    }
-    $("#input").change(function(){
-        $("#output img").each(function(){
-            $(this).remove();
+    </style>
+    <SCRIPT LANGUAGE="JavaScript">
+        // token
+        var token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1MjkzNjc5ODE3NDYsImV4cCI6MTUyOTk3Mjc4MX0.btNsPJhg97yT9NIQ7Khaix0jhHylZQKxF8pFQhvZN22taa0CUvBCclgJ_eXuVjukj1AnytzXo0HJSFZVyl2U8Q";
+        var zTreeObj;
+        // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+
+        function zTreeOnNodeCreated(event, treeId, treeNode) {
+            console.log(treeNode.id + ", " + treeNode.name);
+
+        }
+
+        // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+        var zNodes = [];
+        $(document).ready(function(){
+
+
+            var setting = {
+                data: {
+                    simpleData: {
+                        enable: true,
+                        idKey: "id",
+                        pIdKey: "pId",
+                        rootPId: 0
+                    }
+                },
+                callback:{
+                onNodeCreated:zTreeOnNodeCreated
+                }
+            };
+
+            $.ajax({
+                async : false,
+                url:"http://192.168.0.117:8081/organ/tree/0",
+                headers: { "Authorization": "Bearer " + token},
+                type:"get",
+                contentType:"application/json",
+                data:{} ,
+                success:function (data) {
+                    zNodes =data.obj;
+                    console.log(zNodes)
+                }
+            });
+
+            zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, JSON.parse(zNodes));
+
         });
-        var asd= "";
-        var aaa =handleFiles();
-        for (var h = 0;h < aaa.length ;h++){
-
-            var objUrl = getObjectURL(this.files[h]);
-            console.log(objUrl);
-            asd +="<video src=\""+objUrl+"\" id=\"video0\" controls=\"controls\" preload=\"none\" style=\"display: none;\"></video>"
-
-            $("#video0").attr("src", objUrl) ;
-
-
-        }
-        // $(objUrl).each(function () {
-        //     $("#video0").attr("src", objUrl) ;
-        // });
-        // if (objUrl) {
-        //     $("#video0").attr("src", objUrl) ;
-        // }
-        // var objUrl = getObjectURL(this.files[0]);
-        console.log("objUrl = "+objUrl) ;
-
-    }) ;
-    function getObjectURL(file) {
-        var url = null ;
-        if (window.createObjectURL!=undefined) { // basic
-            url = window.createObjectURL(file) ;
-        } else if (window.URL!=undefined) { // mozilla(firefox)
-            url = window.URL.createObjectURL(file) ;
-        } else if (window.webkitURL!=undefined) { // webkit or chrome
-            url = window.webkitURL.createObjectURL(file) ;
-        }
-        return url ;
-    }
-
-    var video, output;
-    var scale = 0.2;
-    var initialize = function() {
-        output = document.getElementById("output");
-        video = document.getElementById("video0");
-        video.addEventListener('loadeddata',captureImage);
-    };
-
-    var captureImage = function() {
-        var canvas = document.createElement("canvas");
-        canvas.width = video.videoWidth * scale;
-        canvas.height = video.videoHeight * scale;
-        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        var img = document.createElement("img");
-        img.src = canvas.toDataURL("image/png");
-        output.appendChild(img);
-    };
-
-    initialize();
-
-    $("#btn2").click(function () {
-// alert(22)
-        var formData = new FormData();
-        var pic = document.getElementById("video0").files;
-
-        for(var n=0;n< pic.length ;n++){
-            formData.append(""+n+"",pic[n]);
-        }
-        $.ajax({
-            url : "http://192.168.0.117:8081/duty/record/file",
-            type: 'POST',
-            data: formData,
-            async: false,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success : function(data) {
-                pic_list = data.obj;
-                console.log(data);
-            },
-            error : function(data) {
-                console.log(data);
-            }
-        });
-    });
-
-</script>
-</body>
-</html>
+    </SCRIPT>
+</HEAD>
+<BODY>
+<div>
+    <ul id="treeDemo" class="ztree"></ul>
+</div>
+</BODY>
+</HTML>
